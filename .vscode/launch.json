@@ -1,0 +1,20 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+
+        {
+            "type": "al",
+            "request": "launch",
+            "name": "localhost",
+            "server": "http://localhost",
+            "serverInstance": "DEMO",
+            "port": 7004,
+            "authentication": "Windows",
+            "startupObjectType": "Page",
+            "breakOnError": true,
+            "launchBrowser": true,
+            "schemaUpdateMode": "Recreate"
+            
+        }
+    ]
+}

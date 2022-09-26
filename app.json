@@ -1,0 +1,26 @@
+{
+  "id": "8f0db49c-22e8-4ed7-a1fc-bacfd56343e2",
+  "name": "SD Seminar",
+  "publisher": "D.E. Veloper",
+  "version": "1.0.0.0",
+  "brief": "",
+  "description": "Ouma Sylvester is learning how to use MS Dynamics NAV to develop ERP solutions",
+  "privacyStatement": "",
+  "EULA": "",
+  "help": "",
+  "url": "http://localhost",
+  "logo": "",
+  "dependencies": [],
+  "screenshots": [],
+  "platform": "14.0.0.0",
+  "application": "14.0.0.0",
+  "idRanges": [
+    {
+      "from": 50100,
+      "to": 50149
+    }
+  ],
+  "contextSensitiveHelpUrl": "https://SDSeminar.com/help/",
+  "showMyCode": true,
+  "runtime": "3.0"
+}
