@@ -43,7 +43,7 @@ page 50101 "CSD Seminar Card"
                     //Caption = 'Minum Participants';
                 }
 
-                field("Maximum Participanst"; "Maximum Participansts")
+                field("Maximum Participanst"; "Maximum Participants")
                 {
                     //Caption = 'Maximum Participants';
                 }
@@ -100,9 +100,9 @@ page 50101 "CSD Seminar Card"
             {
                 action("Co&mment")
                 {
-                    //RunObject=page "CSD Seminar Comment Sheet";
-                    //RunPageLink = "Table Name" = const(Seminar),
-                    //      "No."=field("No.");
+                    RunObject=page "CSD Seminar Comment Sheet";
+                    RunPageLink = "Table Name" = const(Seminar),
+                          "No."=field("No.");
 
                     Image = Comment;
                     Promoted = true;

@@ -3,7 +3,8 @@ page 50106 "CSD Seminar Comment Sheet"
     PageType = Card;
     Caption = 'Seminar Comment Sheet';
     SourceTable = "CSd Seminar Comment Line";
-    
+    AutoSplitKey = true;
+    UsageCategory = Lists;    
     layout
     {
         area(Content)
@@ -27,9 +28,10 @@ page 50106 "CSD Seminar Comment Sheet"
             }
         }
     }
-    
-    
-    
-    var
-        myInt: Integer;
+
+trigger OnNewRecord(BelowwxRec:Boolean)
+
+begin
+    SetupNewLine;
+end;
 }

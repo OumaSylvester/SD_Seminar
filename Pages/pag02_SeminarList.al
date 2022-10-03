@@ -37,7 +37,7 @@ page 50102 "CSD Seminar List"
 
                 }
 
-                field("Maximum Participants"; "Maximum Participansts")
+                field("Maximum Participants"; "Maximum Participants")
                 {
 
                 }
@@ -66,9 +66,9 @@ page 50102 "CSD Seminar List"
             {
                 action("Co&mment")
                 {
-                    //RunObject=page "CSD Seminar Comment Sheet";
-                    //RunPageLink = "Table Name" = const(Seminar),
-                    //      "No."=field("No.");
+                    RunObject=page "CSD Seminar Comment Sheet";
+                    RunPageLink = "Table Name" = const(Seminar),
+                          "No."=field("No.");
 
                     Image = Comment;
                     Promoted = true;

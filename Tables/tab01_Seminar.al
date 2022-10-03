@@ -27,7 +27,7 @@ table 50101 "CSD Seminar"
             Caption = 'Minimum Participants';
         }
 
-        field(50;   "Maximum Participansts"; Integer)
+        field(50;   "Maximum Participants"; Integer)
         {
             Caption = 'Maximum Participants';
         }
