@@ -24,7 +24,7 @@ table 50104 "CSD Seminar Comment Line"
             Caption = 'No.';
             TableRelation = if("Table Name" = CONST(Seminar))
                 "CSD Seminar" 
-                else if("Table Name" =CONST("Seminar Reg. Header"))
+                else if("Table Name" =CONST("Seminar Registration Header"))
                  "CSD Seminar Reg. Header";
         }
 

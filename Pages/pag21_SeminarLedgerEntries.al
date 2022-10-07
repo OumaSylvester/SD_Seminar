@@ -1,13 +1,12 @@
 page 50121 "CSD Seminar Ledger Entries"
-// CSD1.00 - 2018-01-01 - D. E. Veloper
-// Chapter 7 - Lab 2-9
-//   Chapter 8 - Lab 2 - 4
+// CSD1.00 - 2022 Oct 7 - D. E. Veloper
 //   Added Action Navigate
 {
     Caption = 'Seminar Ledger Entries';
     PageType = List;
     SourceTable = "CSD Seminar Ledger Entry";
     Editable = false;
+    UsageCategory = Lists;
 
     layout
     {

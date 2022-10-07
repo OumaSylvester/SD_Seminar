@@ -75,7 +75,7 @@ page 50110 "CSD Seminar Registration"
             part(SeminarRegistrationLines; "CSD Seminar Reg. Subpage")
             {
                 Caption = 'Lines';
-                SubPageLink = "Document No." = field ("No.");
+                SubPageLink = "Document No." = field("No.");
             }
             group("Seminar Room")
             {
@@ -132,13 +132,13 @@ page 50110 "CSD Seminar Registration"
         {
             part("Seminar Details FactBox"; "CSD Seminar Details FactBox")
             {
-                SubPageLink = "No." = field ("Seminar No.");
+                SubPageLink = "No." = field("Seminar No.");
                 ApplicationArea = All;
             }
             part("Customer Details FactBox"; "Customer Details FactBox")
             {
                 Provider = SeminarRegistrationLines;
-                SubPageLink = "No." = field ("Bill-to Customer No.");
+                SubPageLink = "No." = field("Bill-to Customer No.");
                 ApplicationArea = All;
             }
 
@@ -165,8 +165,8 @@ page 50110 "CSD Seminar Registration"
                     Caption = 'Comments';
                     Image = Comment;
                     RunObject = Page 50106;
-                    RunPageLink = "No." = Field ("No.");
-                    RunPageView = where ("Table Name" = const ("Seminar Reg. Header"));
+                    RunPageLink = "No." = Field("No.");
+                    RunPageView = where("Table Name" = const("Seminar Reg. Header"));
                     ApplicationArea = All;
                 }
                 action("&Charges")
@@ -174,7 +174,7 @@ page 50110 "CSD Seminar Registration"
                     Caption = 'Charges';
                     Image = Costs;
                     RunObject = Page 50124;
-                    RunPageLink = "Document No." = Field ("No.");
+                    RunPageLink = "Document No." = Field("No.");
                     ApplicationArea = All;
                 }
             }
