@@ -1,7 +1,7 @@
-codeunit 50134 "CSd Seminar Reg.-ShowLedger"
+codeunit 50134 "CSD Seminar Reg ShowLedger"
 //CSD1.0 - 2022 Oct 7
 {
-    TableNo = "CSd Seminar Register";
+    TableNo = "CSD Seminar Register";
 
     trigger OnRun()
     begin

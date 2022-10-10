@@ -1,4 +1,6 @@
 table 50104 "CSD Seminar Comment Line"
+//CSD1.0 2022 Oct 10
+
 {
     Caption = 'Seminar Comment Line';
     LookupPageId = "CSD Seminar Comment List";
@@ -6,12 +8,12 @@ table 50104 "CSD Seminar Comment Line"
     
     fields
     {
-        field(10; "Table Name"; Option)
+        field(10;"Table Name";Option)
         {
-            Caption = 'Table Name';
-            OptionMembers = "Seminar", "Seminar Registration Header", "Posted Seminar Reg. Header";
-            OptionCaption = 'Seminar, Seminar Registration, Posted Seminar Registration';
-            
+            Caption='Table Name';
+            OptionMembers="Seminar","Seminar Registration","Posted Seminar Registration";
+            OptionCaption='Seminar,Seminar Registration,Posted Seminar Registration';
+            DataClassification=AccountData;
         }
 
         field(20; "Document Line No."; Integer)
@@ -24,8 +26,11 @@ table 50104 "CSD Seminar Comment Line"
             Caption = 'No.';
             TableRelation = if("Table Name" = CONST(Seminar))
                 "CSD Seminar" 
-                else if("Table Name" =CONST("Seminar Registration Header"))
-                 "CSD Seminar Reg. Header";
+                else if("Table Name" =CONST("Seminar Registration"))
+                 "CSD Seminar Reg. Header"
+                 else if("Table Name"=const("Posted Seminar Registration"))
+                 
+                 "CSD Posted Seminar Reg. Header";
         }
 
         field(40; "Line No."; Integer)

@@ -1,8 +1,7 @@
 table 50112 "CSD Seminar Charge"
 {
-    // CSD1.00 - 2018-01-01 - D. E. Veloper
-    //   Chapter 6 - Lab 1
-    //     - Created new table
+    // CSD1.00 - 2022 Oct 8 - D. E. Veloper
+    
     Caption = 'Seminar Charge';
 
     fields

@@ -1,15 +1,10 @@
 table 50110 "CSD Seminar Reg. Header"
 {
-    // CSD1.00 - 2018-01-01 - D. E. Veloper
-    //   Chapter 6 - Lab 1-3 & Lab 1-4
-    //     - Created new table
-    //   Chapter 8 - Lab 2-3
-    //     - Added LookupId and DrillDownPageId
-    //   Chapter 9 - Lab 1-1
-    //     - Added Field "No. Printed"
+    // CSD1.00 - 2022  October 8 - D. E. Veloper
+    
     Caption = 'Seminar Registration Header';
-    LookupPageId = "CSD Posted Seminar Reg. List";
-    DrillDownPageId = "CSD Posted Seminar Reg. List";
+    LookupPageId = "CSD Seminar Registration List";
+    DrillDownPageId = "CSD Seminar Registration List";
 
     Fields
     {

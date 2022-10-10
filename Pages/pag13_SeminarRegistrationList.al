@@ -1,11 +1,7 @@
 page 50113 "CSD Seminar Registration List"
 {
-     // CSD1.00 - 2018-01-01 - D. E. Veloper
-    //   Chapter 6 - Lab 3
-    //     - Created new page
-    //   Chapter 7 - Lab 5-8
-    //     - Added Post Action  
-
+     // CSD1.00 - 2022 Oct 8 - D. E. Veloper
+    
     Caption = 'Seminar Registration List';
     CardPageID = "CSD Seminar Registration";
     Editable = false;
@@ -79,7 +75,7 @@ page 50113 "CSD Seminar Registration List"
                     Image = Comment;
                     RunObject = Page 50106;
                     RunPageLink = "No."=Field("No.");
-                    RunPageView = where("Table Name"=Const("Seminar Registration Header"));
+                    RunPageView = where("Table Name"=Const("Seminar Registration"));
                     ApplicationArea = All;
                 }
                 action("&Charges")
@@ -98,7 +94,7 @@ page 50113 "CSD Seminar Registration List"
                     PromotedIsBig=true;
                     PromotedCategory=Process;
                     ShortcutKey=F9;
-                    RunObject=codeunit "CSD Seminar-Post (Yes/No)";
+                   // RunObject=codeunit "CSD Seminar-Post (Yes/No)";
                     ApplicationArea = All;
                 }
             }

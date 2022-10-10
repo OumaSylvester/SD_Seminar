@@ -189,7 +189,7 @@ page 50110 "CSD Seminar Registration"
                 PromotedIsBig = true;
                 PromotedCategory = Process;
                 ShortcutKey = F9;
-                RunObject = codeunit "CSD Seminar-Post (Yes/No)";
+                //RunObject = codeunit "CSD Seminar-Post (Yes/No)";
                 ApplicationArea = All;
             }
         }
