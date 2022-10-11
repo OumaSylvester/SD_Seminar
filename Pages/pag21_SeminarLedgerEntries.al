@@ -6,7 +6,7 @@ page 50121 "CSD Seminar Ledger Entries"
     PageType = List;
     SourceTable = "CSD Seminar Ledger Entry";
     Editable = false;
-    UsageCategory = Lists;
+   // UsageCategory = Lists;
 
     layout
     {

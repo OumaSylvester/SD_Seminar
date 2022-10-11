@@ -1,118 +1,150 @@
 page 50101 "CSD Seminar Card"
+// CSD1.00 - 2022 Sep - D. E. Veloper
+// Chapter 5 - Lab 2-4 & Lab 2-5
+// Chapter 8 - Lab 1-2
+// - Added Action
 {
     PageType = Card;
-    UsageCategory = Administration;
     SourceTable = "CSD Seminar";
-    Caption = 'Seminar';
-    
+
     layout
     {
-        area(Content)
+        area(content)
         {
             group(General)
             {
-                field("No.";"No.")
+                field("No."; "No.")
                 {
-                    //Caption = 'No.';
                     AssistEdit = true;
-                    
+                    ApplicationArea = All;
+
                     trigger OnAssistEdit();
                     begin
                         if AssistEdit then
-                            CurrPage.Update;
+                            CurrPage.Update();
                     end;
                 }
-
-                field("Name"; "Name")
+                field(Name; Name)
                 {
-                    //Caption='Name';
+                    ApplicationArea = All;
                 }
-
                 field("Search Name"; "Search Name")
                 {
-                    //Caption = 'Search Name';
+                    ApplicationArea = All;
                 }
-
                 field("Seminar Duration"; "Seminar Duration")
                 {
-                    //Caption = 'Seminar Duration';
+                    ApplicationArea = All;
                 }
-
                 field("Minimum Participants"; "Minimum Participants")
                 {
-                    //Caption = 'Minum Participants';
+                    ApplicationArea = All;
                 }
-
-                field("Maximum Participanst"; "Maximum Participants")
+                field("Maximum Participants"; "Maximum Participants")
                 {
-                    //Caption = 'Maximum Participants';
+                    ApplicationArea = All;
                 }
-
-                field("Blocked"; "Blocked")
+                field(Blocked; Blocked)
                 {
-                    //Caption = 'Blocked';
+                    ApplicationArea = All;
                 }
-
-                field("Last Date Modofied"; "Last Date Modified")
+                field("Last Date Modified"; "Last Date Modified")
                 {
-                    //Caption = 'Last Date Modified';
+                    ApplicationArea = All;
                 }
             }
-
             group(Invoicing)
             {
-                    field("Gen.Prod. Posting Group"; "Gen. Prod. Posting Group")
-                    {
-                        //Caption = 'Gen. Prod. Posting Group';
-                    }
-
-                    field("VAT Prod. Posting Group"; "VAT Prod. Posting Group")
-                    {
-                       // Caption = 'VAT Prod. Posting Group';
-                    }
-
-                    field("Seminar Price"; "Seminar Price")
-                    {
-                        //Caption = 'Seminar Price';
-                    }
+                field("Gen. Prod. Posting Group"; "Gen. Prod. Posting Group")
+                {
+                    ApplicationArea = All;
+                }
+                field("VAT Prod. Posting Group"; "VAT Prod. Posting Group")
+                {
+                    ApplicationArea = All;
+                }
+                field("Seminar Price"; "Seminar Price")
+                {
+                    ApplicationArea = All;
+                }
             }
         }
-
         area(FactBoxes)
         {
             systempart("Links"; Links)
             {
-
+                ApplicationArea = All;
             }
-
             systempart("Notes"; Notes)
             {
-
+                ApplicationArea = All;
             }
         }
+
     }
-    
+
     actions
     {
         area(Navigation)
         {
             group("&Seminar")
             {
-                action("Co&mment")
+                action("Co&mments")
                 {
-                    RunObject=page "CSD Seminar Comment Sheet";
-                    RunPageLink = "Table Name" = const(Seminar),
-                          "No."=field("No.");
-
+                    Caption = 'Co&mments';
+                    RunObject = page "CSD Seminar Comment Sheet";
+                    RunPageLink = "Table Name" = const (Seminar), "No." = field ("No.");
                     Image = Comment;
                     Promoted = true;
                     PromotedIsBig = true;
                     PromotedOnly = true;
+                    ApplicationArea = All;
                 }
+                
+                action("Ledger Entries")
+                {
+                    Caption = 'Ledger Entries';
+                    RunObject = page "CSD Seminar Ledger Entries";
+                    RunPageLink = "Seminar No." = field ("No.");
+                    Promoted = true;
+                    PromotedCategory = Process;
+                    ShortcutKey = "Ctrl+F7";
+                    Image = WarrantyLedger;
+                    ApplicationArea = All;
+                }
+                
+                action("&Registrations")
+                {
+                    Caption = '&Registrations';
+                    RunObject = page "CSD Seminar Registration List";
+                    RunPageLink = "Seminar No." = field ("No.");
+                    Image = Timesheet;
+                    Promoted = true;
+                    PromotedCategory = Process;
+                    ApplicationArea = All;
+                }
+                
             }
         }
-    }
+        
+        area(Processing)
+        {
+            action("Seminar Registration")
+            {
+                Caption = 'Seminar Registration';
+                RunObject = page "CSD Seminar Registration";
+                RunPageLink = "Seminar No." = field ("No.");
+                RunPageMode = Create;
+                Image = NewTimesheet;
+                Promoted = true;
+                PromotedCategory = New;
+                ApplicationArea = All;
+
+            }
+        }
     
-    var 
-        AssistEdit:Boolean;
+    }
+
+    var
+        AssistEdit: Boolean;
 }

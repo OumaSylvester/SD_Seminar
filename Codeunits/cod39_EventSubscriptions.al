@@ -1,6 +1,6 @@
 codeunit 50139 EventSubscriptions
 {
-    // CSD1.00 - 2018-01-01 - D. E. Veloper
+    // CSD1.00 - 2022 Oct 10 - 11  - D. E. Veloper
     // Chapter 7 - Lab 2-1
     // Chapter 8 - Lab 2-3 
     [EventSubscriber(ObjectType::Codeunit, 212, 'OnBeforeResLedgEntryInsert', '', true, true)]

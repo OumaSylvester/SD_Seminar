@@ -1,8 +1,8 @@
 page 50107 "CSD Seminar Comment List"
 {
-    PageType = Card;
-    Caption = 'Seminar Comment Sheet';
-    SourceTable = "CSd Seminar Comment Line";
+    PageType = List;
+    Caption = 'Seminar Comment List';
+    SourceTable = "CSD Seminar Comment Line";
     Editable = false;
     
     layout

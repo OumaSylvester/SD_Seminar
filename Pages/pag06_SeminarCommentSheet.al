@@ -1,6 +1,6 @@
 page 50106 "CSD Seminar Comment Sheet"
 {
-    PageType = Card;
+    PageType = List;
     Caption = 'Seminar Comment Sheet';
     SourceTable = "CSd Seminar Comment Line";
     AutoSplitKey = true;
