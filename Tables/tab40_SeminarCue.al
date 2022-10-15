@@ -1,7 +1,10 @@
 table 50140 "CSD Seminar Cue"
+// CSD1.00 - 2022 Oct 15 - D. E. Veloper
+//Created New table
+
 {
     Caption = 'Seminar Cue';
-    DataClassification = SystemMetadata;
+    DataClassification = ToBeClassified;
 
     fields
     {
