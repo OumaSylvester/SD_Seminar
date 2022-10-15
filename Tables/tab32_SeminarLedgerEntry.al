@@ -1,6 +1,6 @@
 table 50132 "CSD Seminar Ledger Entry"
 {
-    // CSD1.00 - 2018-01-01 - D. E. Veloper
+    // CSD1.00 - 2022 Oct - D. E. Veloper
     //   Chapter 7 - Lab 1 - 3
     //     - Created new table
     //   Chapter 8 - Lab 2 - 1

@@ -1,11 +1,11 @@
 page 50101 "CSD Seminar Card"
 // CSD1.00 - 2022 Sep - D. E. Veloper
-// Chapter 5 - Lab 2-4 & Lab 2-5
-// Chapter 8 - Lab 1-2
 // - Added Action
 {
     PageType = Card;
     SourceTable = "CSD Seminar";
+    
+    
 
     layout
     {

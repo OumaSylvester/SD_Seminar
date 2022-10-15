@@ -3,7 +3,7 @@ page 50102 "CSD Seminar List"
     PageType = List;
     UsageCategory = Lists;
     SourceTable = "CSD Seminar";
-    CardPageId = 50101;
+    CardPageId = "CSD Seminar Card";
     Editable = false;
     Caption = 'Seminar List';
     

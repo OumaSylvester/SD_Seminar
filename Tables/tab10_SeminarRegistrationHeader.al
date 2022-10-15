@@ -310,6 +310,8 @@ table 50110 "CSD Seminar Reg. Header"
             Caption = 'Posting No.';
             DataClassification = AccountData;
         }
+
+        //Chapter 9 -Lab -1-1 Oct 14, 2022
         field(40; "No. Printed"; Integer)
         {
             Caption = 'No. Printed';
