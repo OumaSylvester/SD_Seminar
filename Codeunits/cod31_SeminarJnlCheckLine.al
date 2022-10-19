@@ -19,28 +19,30 @@ codeunit 50131 "CSD Seminar Jnl.-Check Line"
 
     procedure RunCheck(var SeminarJournalLine: Record "CSD Seminar Journal Line");
     begin
-        With SeminarJournalLine do begin
-            if EmptyLine() then
+        SeminarJournalLine.Reset();
+        if SeminarJournalLine.FindFirst() then begin;
+        //With SeminarJournalLine do begin
+            if SeminarJournalLine.EmptyLine() then
                 exit;
 
-            TestField("Posting Date");
-            TestField("Instructor Resource No.");
-            TestField("Seminar No.");
+            SeminarJournalLine.TestField("Posting Date");
+            SeminarJournalLine.TestField("Instructor Resource No.");
+            SeminarJournalLine.TestField("Seminar No.");
 
-            case "Charge Type" of
-                "Charge Type"::Instructor:
-                    TestField("Instructor Resource No.");
-                "Charge Type"::Room:
-                    TestField("Room Resource No.");
-                "Charge Type"::Participant:
-                    TestField("Participant Contact No.");
+            case SeminarJournalLine."Charge Type" of
+                SeminarJournalLine."Charge Type"::Instructor:
+                    SeminarJournalLine.TestField("Instructor Resource No.");
+                SeminarJournalLine."Charge Type"::Room:
+                    SeminarJournalLine.TestField("Room Resource No.");
+                SeminarJournalLine."Charge Type"::Participant:
+                    SeminarJournalLine.TestField("Participant Contact No.");
             end;
 
-            if Chargeable then
-                TestField("Bill-to Customer No.");
+            if SeminarJournalLine.Chargeable then
+                SeminarJournalLine.TestField("Bill-to Customer No.");
 
-            if "Posting Date" = ClosingDate("Posting Date") then
-                FieldERROR("Posting Date", ClosingDateTxt);
+            if SeminarJournalLine."Posting Date" = ClosingDate(SeminarJournalLine."Posting Date") then
+                SeminarJournalLine.FieldERROR("Posting Date", ClosingDateTxt);
 
             if (AllowPostingFrom = 0D) and (AllowPostingTo = 0D) then begin
                 if UserId() <> '' then
@@ -57,12 +59,12 @@ codeunit 50131 "CSD Seminar Jnl.-Check Line"
                 if AllowPostingTo = 0D then
                     AllowPostingTo := DMY2Date(31, 12, 9999);
             end;
-            if ("Posting Date" < AllowPostingFrom) OR ("Posting Date" > AllowPostingTo) then
-                FieldError("Posting Date", PostingDateTxt);
+            if (SeminarJournalLine."Posting Date" < AllowPostingFrom) OR (SeminarJournalLine."Posting Date" > AllowPostingTo) then
+                SeminarJournalLine.FieldError("Posting Date", PostingDateTxt);
 
-            if ("Document Date" <> 0D) then
-                if ("Document Date" = CLOSINGDATE("Document Date")) then
-                    FieldERROR("Document Date", PostingDateTxt);
+            if (SeminarJournalLine."Document Date" <> 0D) then
+                if (SeminarJournalLine."Document Date" = CLOSINGDATE(SeminarJournalLine."Document Date")) then
+                   SeminarJournalLine.FieldERROR("Document Date", PostingDateTxt);
         end;
     end;
 }

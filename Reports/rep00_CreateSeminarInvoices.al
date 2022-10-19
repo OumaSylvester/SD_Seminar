@@ -185,10 +185,12 @@ report 50100 "CSD Create Seminar Invoices"
 
     local procedure FinalizeSalesInvoiceHeader();
     begin
-        with SalesHeader do begin
+        SalesHeader.Reset();
+        if SalesHeader.FindFirst() then begin;
+        //with SalesHeader do begin
             if CalcInvoiceDiscount then
                 SalesCalcDiscount.Run(SalesLine);
-            Get("document Type", "No.");
+            SalesHeader.Get(SalesHeader."document Type", SalesHeader."No.");
             Commit();
             Clear(SalesCalcDiscount);
             Clear(SalesPost);
@@ -203,18 +205,20 @@ report 50100 "CSD Create Seminar Invoices"
 
     local procedure InsertSalesInvoiceHeader();
     begin
-        with SalesHeader do begin
-            Init();
-            "document Type" := "document Type"::Invoice;
-            "No." := '';
-            Insert(true);
-            Validate("Sell-to Customer No.", "Seminar Ledger Entry"."Bill-to Customer No.");
+        SalesHeader.Reset();
+        if SalesHeader.FindFirst() then begin
+        //with SalesHeader do begin
+            SalesHeader.Init();
+            SalesHeader."document Type" := SalesHeader."document Type"::Invoice;
+            SalesHeader."No." := '';
+            SalesHeader.Insert(true);
+            SalesHeader.Validate("Sell-to Customer No.", "Seminar Ledger Entry"."Bill-to Customer No.");
             //if "Bill-to Customer No." <> "Sell-to Customer No." then
             //    Validate("Bill-to Customer No.", "Seminar Ledger Entry"."Bill-to Customer No.");
-            Validate("Posting Date", PostingDateReq);
-            Validate("document Date", docDateReq);
-            Validate("Currency Code", '');
-            Modify();
+           SalesHeader.Validate("Posting Date", PostingDateReq);
+           SalesHeader.Validate("document Date", docDateReq);
+           SalesHeader.Validate("Currency Code", '');
+           SalesHeader.Modify();
             NextLineNo := 10000;
             OldSeminarNo := '';
         end;

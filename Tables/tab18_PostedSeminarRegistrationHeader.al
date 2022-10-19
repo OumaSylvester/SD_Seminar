@@ -38,7 +38,7 @@ table 50118 "CSD Posted Seminar Reg. Header"
             DataClassification = AccountData;
 
         }
-        Field(6; "Instructor Name"; Text[50])
+        Field(6; "Instructor Name"; Text[100])
         {
             Caption = 'Instructor Name';
             CalcFormula = Lookup (Resource.Name where ("No." = Field ("Instructor Resource No."),

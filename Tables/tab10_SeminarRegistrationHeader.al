@@ -83,7 +83,7 @@ table 50110 "CSD Seminar Reg. Header"
                 CALCFieldS("Instructor Name");
             end;
         }
-        Field(6; "Instructor Name"; Text[50])
+        Field(6; "Instructor Name"; Text[100])
         {
             Caption = 'Instructor Name';
             CalcFormula = Lookup (Resource.Name where ("No." = Field ("Instructor Resource No."),
@@ -282,7 +282,9 @@ table 50110 "CSD Seminar Reg. Header"
 
             trigger OnLookup();
             begin
-                with SeminarRegHeader do begin
+                SeminarRegHeader.Reset();
+                if SeminarRegHeader.FindFirst() then begin;
+                //with SeminarRegHeader do begin
                     SeminarRegHeader := Rec;
                     SeminarSetup.Get();
                     SeminarSetup.TestField("Seminar Registration Nos.");
@@ -400,7 +402,10 @@ table 50110 "CSD Seminar Reg. Header"
 
     procedure AssistEdit(OldSeminarRegHeader: Record "CSD Seminar Reg. Header"): Boolean;
     begin
-        with SeminarRegHeader do begin
+        SeminarRegHeader.Reset();
+        if SeminarRegHeader.FindFirst() then begin;
+
+        //with SeminarRegHeader do begin
             SeminarRegHeader := Rec;
             SeminarSetup.Get();
             SeminarSetup.TestField("Seminar Registration Nos.");

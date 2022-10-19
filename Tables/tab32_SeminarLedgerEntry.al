@@ -97,7 +97,7 @@ table 50132 "CSD Seminar Ledger Entry"
             TableRelation = Contact;
             DataClassification = AccountData;
         }
-        field(15; "Participant Name"; Text[50])
+        field(15; "Participant Name"; Text[100])
         {
             Caption = 'Participant Name';
             FieldClass = FlowField;
