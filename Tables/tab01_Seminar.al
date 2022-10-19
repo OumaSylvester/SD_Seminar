@@ -91,6 +91,53 @@ table 50101 "CSD Seminar"
         }
     }
     
-    
-    
+    var
+        SeminarSetup: Record "CSD Seminar Setup";
+        CommentLine: Record "CSD Seminar Comment Line";
+        Seminar: Record "CSD Seminar";
+        GenProdPostingGroup: Record "Gen. Product Posting Group";
+        NoSeriesMgt: Codeunit NoSeriesManagement;
+
+    trigger OnInsert();
+    begin
+        if "No." = '' then begin
+            SeminarSetup.get();
+            SeminarSetup.TestField("Seminar Nos.");
+            NoSeriesMgt.InitSeries(SeminarSetup."Seminar Nos.", xRec."No. Series", 0D, "No.", "No. Series");
+        end;
+    end;
+
+    trigger OnModify();
+    begin
+        "Last Date Modified" := Today();
+    end;
+
+    trigger OnDelete();
+    begin
+        CommentLine.Reset();
+        CommentLine.SetRange("Table Name", CommentLine."Table Name"::Seminar);
+        CommentLine.SetRange("No.", "No.");
+        CommentLine.DeleteAll();
+    end;
+
+    trigger OnRename();
+    begin
+        "Last Date Modified" := Today;
+    end;
+
+    procedure AssistEdit(): Boolean;
+    begin
+        Seminar.Reset();
+        if Seminar.FindFirst() then begin
+        //with Seminar do begin
+            Seminar := Rec;
+            SeminarSetup.get();
+            SeminarSetup.TestField("Seminar Nos.");
+            if NoSeriesMgt.SelectSeries(SeminarSetup."Seminar Nos.", xRec."No. Series", "No. Series") then begin
+                NoSeriesMgt.SetSeries("No.");
+                Rec := Seminar;
+                exit(true);
+            end;
+        end;
+    end;
 }
